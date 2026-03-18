@@ -4,6 +4,11 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 import numpy as np
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+pipeline = joblib.load(os.path.join(BASE_DIR, "best_pipeline_v2.pkl"))
+
 class OutlierCapper(BaseEstimator, TransformerMixin):
     """
     Caps each column at a given lower and upper percentile.
@@ -75,7 +80,7 @@ class SkewnessTransformer(BaseEstimator, TransformerMixin):
 
 st.title("Credit Default Risk")
 
-pipeline = joblib.load(r"\scripts\best_pipeline_v2.pkl")
+# pipeline = joblib.load(r"\scripts\best_pipeline_v2.pkl")
 
 age             = st.number_input("Age",             value=40)
 revolving       = st.number_input("Revolving Utilization (0-1)", value=0.3)

@@ -75,7 +75,7 @@ class SkewnessTransformer(BaseEstimator, TransformerMixin):
 
 st.title("Credit Default Risk")
 
-pipeline = joblib.load("best_pipeline_v2.pkl")
+pipeline = joblib.load(r"\scripts\best_pipeline_v2.pkl")
 
 age             = st.number_input("Age",             value=40)
 revolving       = st.number_input("Revolving Utilization (0-1)", value=0.3)
